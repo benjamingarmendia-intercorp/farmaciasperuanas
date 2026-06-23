@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Flightie Dev Server",
+      "runtimeExecutable": "/usr/bin/ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "/Users/benjamin/Documents/Claude/Projects/Flightie", "-p", "8080"],
+      "port": 8080
+    },
+    {
+      "name": "ONPE Viewer",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["/Users/benjamin/Documents/Claude/Projects/Flightie/onpe_scraper/serve.py", "8081"],
+      "port": 8081
+    }
+  ]
+}
