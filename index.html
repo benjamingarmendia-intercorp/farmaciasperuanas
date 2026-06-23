@@ -753,8 +753,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   .seg{display:flex;border:1px solid var(--line);border-radius:9px;overflow:hidden}
   .seg button{border:0;background:#fff;padding:7px 13px;font-size:13px;cursor:pointer;font-weight:600;color:var(--mut)}
   .seg button.active[data-b=ALL]{background:var(--ink);color:#fff}
-  .seg button.active[data-b=MF]{background:var(--mf);color:#fff}
-  .seg button.active[data-b=IF]{background:var(--if);color:#fff}
+  .seg button.active[data-b=FP]{background:#0d9488;color:#fff}
   .seg button.active[data-b=MS]{background:var(--ms);color:#fff}
   select,input[type=search]{padding:7px 11px;font-size:13px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--ink);outline:none}
   input[type=search]{min-width:210px}
@@ -805,8 +804,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
     <div class="controls">
       <div class="seg" id="brand">
         <button data-b="ALL" class="active">Todas</button>
-        <button data-b="MF">MiFarma</button>
-        <button data-b="IF">InkaFarma</button>
+        <button data-b="FP">Farmacias Peruanas</button>
         <button data-b="MS">MINSA</button>
       </div>
       <select id="region"></select>
@@ -886,7 +884,7 @@ rsel.innerHTML = '<option value="">Todas las regiones</option>' + regions.map(r=
 function visible(){
   const q = fQ.trim().toLowerCase();
   return DATA.filter(d=>
-    (fBrand==="ALL"||d.b===fBrand) &&
+    (fBrand==="ALL" || d.b===fBrand || (fBrand==="FP" && d.b!=="MS")) &&
     (!fRegion||d.r===fRegion) &&
     (!q || d.n.toLowerCase().includes(q) || d.c.toLowerCase().includes(q))
   );
